@@ -16,6 +16,8 @@ export default function Main(props) {
     let textWhite = "text-white";
     let bgBlack = "bg-black";
     let textBlack = "text-black";
+    let invert = "invert",
+      invert0 = "invert-0";
 
     function scroll(scrollOffset) {
       window.scrollTo({
@@ -75,19 +77,18 @@ export default function Main(props) {
               />
             </div>
 
-            <div className="flex flex-col h-auto w-auto justify-between items-center">
+            <div
+              className={`flex flex-col h-auto w-auto justify-between items-center ${
+                darkMode ? invert0 : invert
+              }`}
+            >
               {props.id === 1 ? (
                 <span></span>
               ) : (
                 <img
                   src={Arrow}
                   alt=""
-                  className={
-                    "xl:rotate-180 xl:cursor-pointer xl:transition xl:duration-300 xl:delay-75 xl:block hidden " +
-                    darkMode
-                      ? "invert"
-                      : ""
-                  }
+                  className="xl:rotate-180 xl:cursor-pointer xl:transition xl:duration-300 xl:delay-75 xl:block hidden"
                   onClick={() => scroll(props.id === 1 ? 1 : props.id - 1)}
                 />
               )}
@@ -98,11 +99,7 @@ export default function Main(props) {
                 <img
                   src={Arrow}
                   alt=""
-                  className={
-                    darkMode
-                      ? "xl:transition xl:duration-300 xl:delay-75 xl:cursor-pointer xl:block hidden"
-                      : "xl:transition xl:duration-300 xl:delay-75 xl:cursor-pointer xl:block xl:invert hidden"
-                  }
+                  className="xl:transition xl:duration-300 xl:delay-75 xl:cursor-pointer xl:block hidden"
                   onClick={() =>
                     scroll(props.size === props.id ? props.size : props.id + 1)
                   }
@@ -117,7 +114,6 @@ export default function Main(props) {
             </div>
 
             <div className="flex justify-center relative w-12/12">
-              {/* {array.map((color, index) => ( */}
               <div className={"h-16 w-56"}>
                 <button
                   className={

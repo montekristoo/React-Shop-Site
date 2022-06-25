@@ -11,27 +11,15 @@ export default function Nav(props) {
   const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
   const [openNav, setOpenNav] = React.useState(false)
   const [isVisible, setIsVisible] = React.useState(true);
+
   let white = 'bg-white text-black'
   let black = 'bg-black text-white'
   let bgWhite = "bg-white";
   let textWhite = "text-white";
   let bgBlack = "bg-black";
   let textBlack = "text-black";
-
-  useEffect(() => {
-    window.addEventListener("scroll", listenToScroll);
-    return () => window.removeEventListener("scroll", listenToScroll);
-  }, []);
-
-  const listenToScroll = () => {
-    const winScroll =
-      document.body.scrollTop || document.documentElement.scrollTop;
-    if (winScroll) {
-      isVisible && setIsVisible(false);
-    } else {
-      setIsVisible(true);
-    }
-  };
+  let invert = "invert",
+    invert0 = "invert-0";
 
   function handleClick() {
     toggleDarkMode();
@@ -39,7 +27,11 @@ export default function Nav(props) {
 
   return (
     <>
-      <nav className="hidden lg:flex flex-col justify-between w-11/12 h-128 font-['Montserrat'] font-semibold text-navText tracking-wider leading-relaxed sticky top-0 z-30">
+      <nav
+        className={`hidden lg:flex flex-col justify-between w-11/12 h-128 font-['Montserrat'] font-semibold text-navText tracking-wider leading-relaxed sticky top-0 z-30 ${
+          darkMode ? bgBlack : bgWhite
+        }`}
+      >
         <div className="flex flex-row flex-1 w-full h-full justify-between">
           <ul className="flex-1 flex flex-row gap-4 h-full list-none items-center text-lg">
             <li>WOMEN</li>
@@ -73,22 +65,20 @@ export default function Nav(props) {
                         : { background: "black" }
                     }
                   />
-                  {darkMode ? (
-                    <span className="text-xs">WHITE</span>
-                  ) : (
-                    <span className="text-xs">BLACK</span>
-                  )}
+                  <span className="text-xs">
+                    {darkMode ? "WHITE" : "BLACK"}
+                  </span>
                 </div>
               </li>
             </div>
           </ul>
         </div>
         <div className="w-full flex flex-row place-content-center">
-          {darkMode ? (
-            <img src={Brand} alt="" />
-          ) : (
-            <img src={Brand} alt="" className="invert" />
-          )}
+          <img
+            src={Brand}
+            alt=""
+            className={`${darkMode ? invert0 : invert}`}
+          />
         </div>
       </nav>
 
