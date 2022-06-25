@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import React, { useContext } from "react";
 import Nav from "./components/Navbar/Nav";
 import Main from "./components/Main/Main";
@@ -23,7 +22,7 @@ function App() {
   return (
     <>
       <div
-        className={`flex flex-col place-items-center relative ${
+        className={`flex flex-col place-items-center relative scrollbar ${
           darkMode ? black : white
         }`}
       >

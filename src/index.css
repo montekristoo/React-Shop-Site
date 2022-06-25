@@ -6,4 +6,19 @@
         font-family: Proxima Nova, system-ui, sans-serif;
         scroll-behavior: smooth;
     }
+    .scrollbar::-webkit-scrollbar {
+        width: 20px;
+        height: 20px;
+    }
+    .scrollbar::-webkit-scrollbar-track {
+        background: white;
+    }
+    .scrollbar::-webkit-scrollbar-thumb {
+        background: black;
+        border-radius: 100vh;
+        border: 3px solid #f6f7ed;
+    }
+    .scrollbar::-webkit-scrollbar-thumb:hover {
+        opacity: .5
+    }
 }
