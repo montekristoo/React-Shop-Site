@@ -11,19 +11,21 @@ import "./App.css";
 
 function App() {
   const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
+  let white = "bg-white text-black";
+  let black = "bg-black text-white";
 
   const shoes = data.map((item) => {
-    return <Main key={item.id} {...item} size={data.length}/>;
+    return (
+      <Main key={item.id} {...item} size={data.length} className="scroll" />
+    );
   });
 
   return (
     <>
       <div
-        className={
-          darkMode
-            ? "flex flex-col place-items-center bg-black text-black relative"
-            : "flex flex-col place-items-center bg-white text-white relative"
-        }
+        className={`flex flex-col place-items-center relative ${
+          darkMode ? black : white
+        }`}
       >
         <Nav />
         {shoes}

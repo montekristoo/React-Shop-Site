@@ -13,21 +13,25 @@ export default function Nav(props) {
   const [isVisible, setIsVisible] = React.useState(true);
   let white = 'bg-white text-black'
   let black = 'bg-black text-white'
+  let bgWhite = "bg-white";
+  let textWhite = "text-white";
+  let bgBlack = "bg-black";
+  let textBlack = "text-black";
 
-    useEffect(() => {
-      window.addEventListener("scroll", listenToScroll);
-      return () => window.removeEventListener("scroll", listenToScroll);
-    }, []);
+  useEffect(() => {
+    window.addEventListener("scroll", listenToScroll);
+    return () => window.removeEventListener("scroll", listenToScroll);
+  }, []);
 
-    const listenToScroll = () => {
-      const winScroll =
-        document.body.scrollTop || document.documentElement.scrollTop;
-      if (winScroll) {
-        isVisible && setIsVisible(false);
-      } else {
-        setIsVisible(true);
-      }
-    };
+  const listenToScroll = () => {
+    const winScroll =
+      document.body.scrollTop || document.documentElement.scrollTop;
+    if (winScroll) {
+      isVisible && setIsVisible(false);
+    } else {
+      setIsVisible(true);
+    }
+  };
 
   function handleClick() {
     toggleDarkMode();
@@ -35,41 +39,17 @@ export default function Nav(props) {
 
   return (
     <>
-      <nav
-        className={
-          darkMode
-            ? "hidden lg:flex flex-col justify-between w-11/12 h-128 font-['Montserrat'] font-semibold text-navText tracking-wider leading-relaxed sticky top-0 z-30 bg-dark"
-            : "hidden lg:flex flex-col justify-between w-11/12 h-128 font-['Montserrat'] font-semibold text-navText tracking-wider leading-relaxed sticky top-0 z-30 bg-white"
-        }
-      >
+      <nav className="hidden lg:flex flex-col justify-between w-11/12 h-128 font-['Montserrat'] font-semibold text-navText tracking-wider leading-relaxed sticky top-0 z-30">
         <div className="flex flex-row flex-1 w-full h-full justify-between">
-          <ul
-            className={
-              darkMode
-                ? "flex-1 flex flex-row gap-4 h-full text-white list-none items-center text-lg"
-                : "flex-1 flex flex-row gap-4 h-full text-black list-none items-center text-lg"
-            }
-          >
+          <ul className="flex-1 flex flex-row gap-4 h-full list-none items-center text-lg">
             <li>WOMEN</li>
             <li>MEN</li>
             <li>ALL</li>
           </ul>
-          <div
-            className={
-              darkMode
-                ? "flex flex-row text-white text-logo self-start resize"
-                : "flex flex-row text-black text-logo self-start resize"
-            }
-          >
+          <div className="flex flex-row text-logo self-start resize">
             <span className="align-middle">YOUR SNEAKER</span>
           </div>
-          <ul
-            className={
-              darkMode
-                ? "h-full list-none flex flex-row flex-1 gap-5 text-white items-center justify-end"
-                : "h-full list-none flex flex-row flex-1 gap-5 text-black items-center justify-end"
-            }
-          >
+          <ul className="h-full list-none flex flex-row flex-1 gap-5 items-center justify-end">
             <div className="flex flex-row h-auto gap-5 w-auto justify-center items-center">
               <li>
                 <button className="align-middle text-2xl">
@@ -83,21 +63,16 @@ export default function Nav(props) {
               </li>
               <li>
                 <div className="flex flex-row flex-1 gap-2 justify-center items-center">
-                  {darkMode ? (
-                    <Switch
-                      onClick={handleClick}
-                      size="small"
-                      className="invert-0"
-                      style={{ background: "gray" }}
-                    />
-                  ) : (
-                    <Switch
-                      onClick={handleClick}
-                      size="small"
-                      className="invert-0"
-                      style={{ background: "black" }}
-                    />
-                  )}
+                  <Switch
+                    onClick={handleClick}
+                    size="small"
+                    className="invert-0"
+                    style={
+                      darkMode
+                        ? { background: "gray" }
+                        : { background: "black" }
+                    }
+                  />
                   {darkMode ? (
                     <span className="text-xs">WHITE</span>
                   ) : (
@@ -121,42 +96,29 @@ export default function Nav(props) {
 
       {!openNav && (
         <nav
-          className={
-            darkMode
-              ? "flex w-full h-14 bg-black text-white flex-row lg:hidden items-center justify-between sticky top-0 z-40"
-              : "flex w-full h-14 bg-white text-black flex-row lg:hidden items-center justify-between sticky top-0 z-40"
-          }
+          className={`flex w-full h-14 flex-row lg:hidden items-center justify-between sticky top-0 z-40 ${
+            darkMode ? black : white
+          }`}
         >
           <a
             href="#home"
-            className={
-              darkMode
-                ? "font-['Montserrat'] font-semibold text-navText ml-5 text-white"
-                : "font-['Montserrat'] font-semibold text-navText ml-5 text-black"
-            }
+            className={`font-['Montserrat'] font-semibold text-navText ml-5 ${
+              darkMode ? textWhite : textBlack
+            }`}
           >
             YOUR SNEAKER
           </a>
           <span className="text-2xl h-full mr-5">
             <button className="h-full">
-              <GiHamburgerMenu
-                onClick={() => setOpenNav(!openNav)}
-                className={darkMode ? "text-white" : "text-black"}
-              />
+              <GiHamburgerMenu onClick={() => setOpenNav(!openNav)} />
             </button>
           </span>
         </nav>
       )}
       {openNav && (
-        <div
-          className={
-            darkMode
-              ? "min-h-screen w-full z-20 text-white flex justify-center items-center backdrop-blur-lg fixed top-0 lg:hidden"
-              : "min-h-screen w-full z-20 text-black flex justify-center items-center backdrop-blur-lg fixed top-0 lg:hidden"
-          }
-        >
+        <div className="min-h-screen w-full z-20 flex justify-center items-center backdrop-blur-lg fixed top-0 lg:hidden">
           <span className="absolute top-5 right-5 text-3xl">
-            <button className={darkMode ? "text-white" : "text-black"}>
+            <button>
               <IoIosCloseCircle onClick={() => setOpenNav(!openNav)} />
             </button>
           </span>
