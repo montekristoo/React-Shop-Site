@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/montekristoo/static/css/main.bf777e26.css",
-    "main.js": "/montekristoo/static/js/main.9b6ea627.js",
-    "static/js/787.c6c9fb7e.chunk.js": "/montekristoo/static/js/787.c6c9fb7e.chunk.js",
-    "static/media/Chicago.png": "/montekristoo/static/media/Chicago.1c6d0844998902acba49.png",
-    "static/media/StadiumGreen.png": "/montekristoo/static/media/StadiumGreen.d692960fd0b5fc90620e.png",
-    "static/media/SmokeGrey.png": "/montekristoo/static/media/SmokeGrey.37fbe8933bb398f6bf4b.png",
-    "static/media/IslandGreen.png": "/montekristoo/static/media/IslandGreen.bd2767b1b1afa8405b05.png",
-    "index.html": "/montekristoo/index.html",
-    "main.bf777e26.css.map": "/montekristoo/static/css/main.bf777e26.css.map",
-    "main.9b6ea627.js.map": "/montekristoo/static/js/main.9b6ea627.js.map",
-    "787.c6c9fb7e.chunk.js.map": "/montekristoo/static/js/787.c6c9fb7e.chunk.js.map"
+    "main.css": "/react-shop-site/static/css/main.bf777e26.css",
+    "main.js": "/react-shop-site/static/js/main.36048b17.js",
+    "static/js/787.c6c9fb7e.chunk.js": "/react-shop-site/static/js/787.c6c9fb7e.chunk.js",
+    "static/media/Chicago.png": "/react-shop-site/static/media/Chicago.1c6d0844998902acba49.png",
+    "static/media/StadiumGreen.png": "/react-shop-site/static/media/StadiumGreen.d692960fd0b5fc90620e.png",
+    "static/media/SmokeGrey.png": "/react-shop-site/static/media/SmokeGrey.37fbe8933bb398f6bf4b.png",
+    "static/media/IslandGreen.png": "/react-shop-site/static/media/IslandGreen.bd2767b1b1afa8405b05.png",
+    "index.html": "/react-shop-site/index.html",
+    "main.bf777e26.css.map": "/react-shop-site/static/css/main.bf777e26.css.map",
+    "main.36048b17.js.map": "/react-shop-site/static/js/main.36048b17.js.map",
+    "787.c6c9fb7e.chunk.js.map": "/react-shop-site/static/js/787.c6c9fb7e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.bf777e26.css",
-    "static/js/main.9b6ea627.js"
+    "static/js/main.36048b17.js"
   ]
 }
